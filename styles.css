@@ -1,0 +1,1967 @@
+/* ========================================
+   RESET & BASE
+======================================== */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #050505;
+    min-height: 100vh;
+    position: relative;
+    /* ADICIONE ISSO */
+    overflow-x: hidden;
+}
+
+body.no-scroll {
+    overflow: hidden;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ========================================
+   FONTS
+======================================== */
+@font-face {
+    font-family: 'StevieSansLight';
+    src: url('assets/font/STEVIE\ SANS\ LIGHT.TTF') format('truetype');
+}
+
+@font-face {
+    font-family: 'StevieSansBlack';
+    src: url('assets/font/STEVIE\ SANS\ BLACK.TTF') format('truetype');
+}
+
+@font-face {
+    font-family: 'StevieSansBook';
+    src: url('assets/font/STEVIE\ SANS\ BOOK.TTF') format('truetype');
+}
+
+/* ========================================
+   MAIN LAYOUT
+======================================== */
+.conteudo-principal {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-top: 150px;
+}
+
+/* ========================================
+   NAVBAR
+======================================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom-left-radius: 35px;
+    border-bottom-right-radius: 35px;
+    display: flex;
+    align-items: center;
+    z-index: 1000;
+}
+
+.navbar::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-bottom-left-radius: 35px;
+    border-bottom-right-radius: 35px;
+    padding-right: 2.51px;
+    padding-bottom: 2.51px;
+    background: linear-gradient(to right, transparent 0%, transparent 40%, rgba(255, 255, 255, 0.2) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+.nav-container {
+    width: 100%;
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 100px;
+}
+
+.nav-text {
+    color: #ffffff;
+    font-family: 'StevieSansBlack';
+    font-weight: 400;
+    font-size: 16px;
+    flex: 1;
+    text-align: center;
+    margin: 0 20px;
+}
+
+/* ========================================
+   HERO SECTION
+======================================== */
+.hero-container {
+    width: 100%;
+    max-width: 1768px;
+    margin: auto;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 80px;
+}
+
+.hero-card {
+    flex: 1;
+    max-width: 600px;
+    position: relative;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 32px;
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.hero-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 32px;
+    padding: 2px;
+    background: linear-gradient(to bottom, transparent 0%, transparent 40%, rgba(255, 255, 255, 0.15) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+.hero-card h2 {
+    color: #ffffff;
+    font-family: 'StevieSansBlack';
+    font-size: 38px;
+    font-weight: 400;
+    letter-spacing: -4%;
+    margin: 0;
+}
+
+.glow-text {
+    color: #ff9300;
+    font-family: 'StevieSansBlack';
+    font-weight: 400;
+    font-size: 108px;
+    letter-spacing: -4%;
+    margin-left: -25px;
+}
+
+.hero-card p {
+    font-family: 'StevieSansLight';
+    font-weight: 400;
+    font-size: 22px;
+    color: #ffffff;
+    margin: 0 0 28px 29px;
+}
+
+.cta-button {
+    background-color: #ff9300;
+    color: #ffffff;
+    padding: 8px 28px;
+    border: none;
+    border-radius: 18px;
+    cursor: pointer;
+    width: fit-content;
+    margin: 0 0 15px 40px;
+    font-family: 'StevieSansBlack';
+    font-weight: 400;
+    font-size: 24px;
+    letter-spacing: -4%;
+}
+
+.disclaimer {
+    margin: 0;
+    font-family: 'StevieSansLight';
+    font-weight: 400;
+    font-size: 12px;
+    color: #ffffff;
+    margin-left: 5px;
+}
+
+/* =========================================
+   ILUSTRAÇÃO (Direita)
+========================================= */
+.hero-illustration {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    /* Empurra a imagem toda para a direita */
+    align-items: center;
+}
+
+.hero-image {
+    max-width: 475px;
+    /* Pode aumentar esse valor se quiser a imagem maior */
+    width: 100%;
+    height: auto;
+}
+
+/*  =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= DIAGNOSTIC STYLES =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+
+.diagnostico-section {
+    width: 100%;
+    position: relative;
+    z-index: 10;
+}
+
+.folder-wrapper {
+    width: 100%;
+    max-width: 1768px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.diagnostico-section .folder-wrapper {
+    margin-top: 80px;
+}
+
+.folder-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.folder-content {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 32px;
+    border-top-right-radius: 0;
+    padding: 80px 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+/* --- Lado Esquerdo (Textos) --- */
+.diag-text {
+    flex: 0.8;
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin-bottom: -20px;
+}
+
+.diag-text h2 {
+    color: #ffffff;
+    font-family: 'StevieSansBlack';
+    font-size: 30px;
+    letter-spacing: -4%;
+    margin: 0;
+}
+
+.destaque-laranja {
+    color: #ff9300;
+    font-family: 'StevieSansBlack';
+    font-size: 122px;
+    letter-spacing: -4%;
+    margin: -5px 0 15px 0;
+}
+
+.diag-text p {
+    color: #ffffff;
+    font-family: 'StevieSansBook';
+    font-size: 26px;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* --- Lado Direito (Grid Laranja) --- */
+.diag-grid {
+    flex: 1.2;
+    display: grid;
+
+    grid-template-columns: 403px 403px;
+
+    gap: 30px;
+    align-content: start;
+
+}
+
+.diag-grid .info-card:nth-child(1) {
+    border-radius: 0px 16px 16px 16px;
+}
+
+.diag-grid .info-card:nth-child(2) {
+    border-radius: 16px 0px 16px 16px;
+}
+
+.diag-grid .info-card:nth-child(3) {
+    border-radius: 16px 16px 16px 0px;
+}
+
+.diag-grid .info-card:nth-child(4) {
+    border-radius: 16px 16px 0px 16px;
+}
+
+.diag-grid .info-card:nth-child(3) p {
+    font-size: 20px;
+}
+
+.diag-grid .info-card:nth-child(4) p {
+    font-size: 20px;
+}
+
+.info-card {
+    background: linear-gradient(135deg, #FF9D00 0%, #FE7800 100%);
+    padding: 25px;
+    width: 403px;
+    height: 253px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: transform 0.2s ease;
+}
+
+.info-card:hover {
+    transform: translateY(4px);
+    transform: translateX(4px);
+}
+
+.info-card h3 {
+    color: #ffffff;
+    font-family: 'StevieSansBlack';
+    font-size: 34px;
+    letter-spacing: -4%;
+    margin: 0;
+}
+
+.info-card p {
+    color: #ffffff;
+    font-family: 'StevieSansBook';
+    font-size: 27px;
+    margin: 0;
+}
+
+/*  =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= BACKGROUND STYLES =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+
+/* =========================================
+   UTILITÁRIOS: TAMANHOS
+========================================= */
+.t-sm {
+    width: 140px;
+    height: 140px;
+}
+
+.t-md {
+    width: 170px;
+    height: 170px;
+}
+
+.t-mdl {
+    width: 190px;
+    height: 190px;
+}
+
+.t-lg {
+    width: 240px;
+    height: 240px;
+}
+
+.t-xl {
+    width: 270px;
+    height: 270px;
+}
+
+/* =========================================
+   UTILITÁRIOS: CORES
+========================================= */
+.c-amarelo {
+    background-color: #FFB300;
+}
+
+.c-amarelo-v {
+    background-color: #FFCC00;
+}
+
+.c-laranja-med {
+    background-color: #FF9800;
+}
+
+.c-laranja-esc {
+    background-color: #FF6600;
+}
+
+.c-vermelho-laranja {
+    background-color: #FF4500;
+}
+
+.c-vermelho {
+    background-color: #FF0000;
+}
+
+.c-gradiente {
+    background: radial-gradient(circle, #ff5b0e 0%, #ff9819 80%);
+}
+
+/* =========================================
+  BASE E CONTAINERS
+========================================= */
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.cluster-de-bolhas {
+    position: relative;
+    width: 450px;
+    height: 450px;
+}
+
+.bolha {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(25px);
+}
+
+
+/* =========================================
+   4. CLUSTER 1 (Posições)
+========================================= */
+.topo-cima {
+    top: 55px;
+    left: 166px;
+    z-index: 3;
+}
+
+.topo-esq {
+    top: 40px;
+    left: 50px;
+    z-index: 1;
+}
+
+.direita {
+    top: 80px;
+    left: 170px;
+    z-index: 2;
+}
+
+.baixo {
+    top: 240px;
+    left: 140px;
+    z-index: 1;
+}
+
+.baixo-esq {
+    top: 161px;
+    left: 15px;
+    z-index: 3;
+}
+
+.centro {
+    top: 85px;
+    left: 80px;
+    z-index: 4;
+}
+
+#cluster-1 {
+    /* top: 25%; */
+    top: 220px;
+    left: -20vw;
+    transform: scale(2.3);
+}
+
+#cluster-4 {
+    position: absolute;
+    right: -30vw;
+    top: 10%;
+    transform: scale(2.3);
+}
+
+/* =========================================
+   ANIMAÇÃO: INVESTIDA ORGÂNICA (DIREITA)
+========================================= */
+@keyframes investida-direita {
+    0% {
+        /* Posição original */
+        transform: translate(0, 0) scale(1);
+    }
+
+    40% {
+        /* O bote! Vai forte para a direita (200px), sobe um pouco e infla */
+        transform: translate(130px, -20px) scale(1.15);
+    }
+
+    60% {
+        /* Dá uma flutuada lá na frente antes de recuar */
+        transform: translate(100px, 10px) scale(1.1);
+    }
+
+    100% {
+        /* Volta para a base de forma suave */
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+/* =========================================
+   APLICANDO A ALTERNÂNCIA NO CLUSTER 1
+========================================= */
+
+/* 1. O Pelotão de Cima (Inicia o movimento) */
+#cluster-1 .topo-cima,
+#cluster-1 .topo-esq {
+    /* Ciclo de 10 segundos, começa imediatamente */
+    animation: investida-direita 10s ease-in-out infinite;
+    animation-delay: 0s;
+}
+
+/* 2. O Pelotão do Meio (Vai logo em seguida, esticando mais) */
+#cluster-1 .centro,
+#cluster-1 .direita {
+    /* Ciclo um pouco mais longo, começa 3 segundos depois */
+    animation: investida-direita 12s ease-in-out infinite;
+    animation-delay: -3s;
+    /* Delay negativo faz a animação já começar no meio do caminho */
+}
+
+/* 3. O Pelotão de Baixo (Fecha a onda) */
+#cluster-1 .baixo,
+#cluster-1 .baixo-esq {
+    /* Ciclo bem mais lento, criando uma base pesada */
+    animation: investida-direita 15s ease-in-out infinite;
+    animation-delay: -7s;
+}
+
+/* =========================================
+   ANIMAÇÃO: INVESTIDA ORGÂNICA (ESQUERDA)
+========================================= */
+@keyframes investida-esquerda {
+    0% {
+        /* Posição original */
+        transform: translate(0, 0) scale(1);
+    }
+
+    40% {
+        /* O bote invertido! Vai forte para a ESQUERDA (-250px), sobe e infla */
+        transform: translate(-130px, -20px) scale(1.15);
+    }
+
+    60% {
+        /* Dá aquela flutuada antes de recuar */
+        transform: translate(-100px, 10px) scale(1.1);
+    }
+
+    100% {
+        /* Volta para a base */
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+/* =========================================
+   APLICANDO A ALTERNÂNCIA (Exemplo no Cluster 4)
+========================================= */
+
+/* 1. O Pelotão de Cima (Inicia o movimento) */
+#cluster-4 .c4-topo-esq,
+#cluster-4 .c4-topo-dir {
+    animation: investida-esquerda 11s ease-in-out infinite;
+    animation-delay: 0s;
+}
+
+/* 2. O Pelotão do Meio e a Bolha Central (Avançam logo depois) */
+#cluster-4 .c4-centro,
+#cluster-4 .c4-meio-esq,
+#cluster-4 .c4-meio-dir {
+    animation: investida-esquerda 13s ease-in-out infinite;
+    animation-delay: -4s;
+    /* Já começa no meio do bote */
+}
+
+/* 3. O Pelotão de Baixo (Traz o peso por último) */
+#cluster-4 .c4-baixo-esq {
+    animation: investida-esquerda 16s ease-in-out infinite;
+    animation-delay: -9s;
+}
+
+
+
+
+
+
+/* =========================================
+   7. CLUSTER 4 (Posições e Layout)
+========================================= */
+.c4-topo-esq {
+    top: 20px;
+    left: 55px;
+    z-index: 1;
+}
+
+.c4-topo-dir {
+    top: 15px;
+    left: 160px;
+    z-index: 1;
+}
+
+.c4-meio-esq {
+    top: 90px;
+    left: 20px;
+    z-index: 2;
+}
+
+.c4-meio-dir {
+    top: 100px;
+    left: 180px;
+    z-index: 1;
+}
+
+.c4-baixo-esq {
+    top: 190px;
+    left: 15px;
+    z-index: 1;
+}
+
+.c4-centro {
+    top: 90px;
+    left: 65px;
+    z-index: 3;
+}
+
+
+
+/* Responsividade */
+
+@media(max-width: 1200px) {
+    .hero-container .hero-illustration {
+        display: none;
+    }
+
+    .hero-container {
+        justify-content: center;
+    }
+}
+
+
+
+/* =========================================
+   RESPONSIVIDADE: CLUSTERS DE BOLHAS
+========================================= */
+
+@media(max-width: 1520px) {
+    #cluster-1 {
+        /* top: 25%;
+        left: -50vw; */
+        transform: scale(1.7);
+    }
+
+    #cluster-4 {
+        transform: scale(2);
+        /* right: -30vw;
+        top: 50%;
+        transform: scale(2.3); */
+    }
+
+    .folder-content {
+        flex-direction: column;
+    }
+
+    .diag-text {
+        margin-right: 300px;
+        max-width: fit-content;
+    }
+
+}
+
+@media (max-width: 1280px) {
+    #cluster-1 {
+        transform: scale(1.5);
+    }
+
+    #cluster-4 {
+        transform: scale(1.7);
+    }
+}
+
+@media (max-width: 1200px) {
+    #cluster-1 {
+        left: -30vw;
+    }
+
+    #cluster-4 {
+        top: -5%;
+        right: -45vw;
+    }
+
+    .diag-text h2 {
+        font-size: 30px;
+    }
+
+}
+
+@media (max-width: 1100px) {
+    .diag-text {
+        margin: 0px 115px -20px 0px;
+    }
+}
+
+@media (max-width: 980px) {
+    .folder-wrapper {
+        padding: 0;
+    }
+}
+
+@media (max-width: 920px) {
+    #cluster-1 {
+        left: -60vw;
+    }
+
+    #cluster-4 {
+        top: -5%;
+        right: -65vw;
+    }
+
+    .nav-container {
+        padding: 0;
+    }
+}
+
+@media (max-width: 880px) {
+    #cluster-1 {
+        top: 650px;
+    }
+
+    .diagnostico-section .folder-wrapper {
+        margin-top: -40px;
+    }
+
+
+    .diag-text h2 {
+        font-size: 12px;
+    }
+
+    .destaque-laranja {
+        font-size: 50px;
+    }
+
+    .diag-text p {
+        font-size: 11px;
+    }
+
+    .folder-content {
+        padding: 36px 25px;
+    }
+
+    .info-card {
+        width: 152px;
+        height: 68px;
+        padding: 12px;
+        gap: 0px;
+    }
+
+    .diag-grid {
+        grid-template-columns: 183px 151px;
+        gap: 12px;
+    }
+
+    .info-card h3 {
+        font-size: 10px;
+    }
+
+    .info-card p {
+        font-size: 8px;
+    }
+
+    .diag-grid .info-card:nth-child(3) p {
+        font-size: 7px;
+    }
+
+    .diag-grid .info-card:nth-child(4) p {
+        font-size: 7px;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-text {
+        font-size: 10px;
+        /* max-width: 230px; */
+        line-height: 1.4;
+    }
+
+    #cluster-1 {
+        left: -65vw;
+        transform: scale(1.2);
+    }
+
+    #cluster-4 {
+        top: -5%;
+        right: -70vw;
+        transform: scale(1.5);
+    }
+
+    .hero-card h2 {
+        font-size: 20px;
+    }
+
+    .glow-text {
+        font-size: 55px;
+    }
+
+    .hero-card p {
+        font-size: 15px;
+    }
+
+    .cta-button {
+        font-size: 16px;
+    }
+
+    .disclaimer {
+        font-size: 7px;
+    }
+
+    .hero-container {
+        padding: 0 15px;
+    }
+
+    .hero-card {
+        max-width: 420px;
+        padding: 50px 0px;
+    }
+}
+
+
+@media (max-width: 580px) {
+    #cluster-1 {
+        /* left: -65vw; */
+        transform: scale(0.8);
+    }
+
+    .folder-wrapper {
+        padding: 0;
+    }
+
+    #cluster-4 {
+        top: -5%;
+        /* right: -70vw; */
+        transform: scale(0.9);
+    }
+
+    .logo img {
+        height: 70px;
+    }
+
+    .nav-text {
+        margin-left: -5px;
+        margin-right: 40px;
+    }
+}
+
+@media (max-width: 400px) {
+    #cluster-1 {
+        left: -95vw;
+    }
+
+    #cluster-4 {
+        right: -100vw;
+    }
+
+    .diag-text {
+        margin: 0px 90px -20px 0px;
+    }
+}
+
+@media (min-width: 2330px) {
+    #cluster-1 {
+        transform: scale(3.2);
+    }
+
+    #cluster-4 {
+        transform: scale(3.2);
+    }
+}
+
+@media (min-width: 2840px) {
+    #cluster-1 {
+        transform: scale(3.8);
+    }
+
+    #cluster-4 {
+        transform: scale(3.8);
+    }
+}
+
+section {
+    margin-bottom: -100px;
+}
+
+/* ========================================
+   SEÇÃO: RESULTADOS & FEEDBACKS
+======================================== */
+.resultados-section {
+    width: 100%;
+    position: relative;
+    z-index: 10;
+}
+
+.resultados-wrapper {
+    width: 100%;
+    max-width: 1768px;
+    /* Mantém o alinhamento geral do site */
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* O Container Principal (Vidro Fosco base) */
+.resultados-card {
+    width: 100%;
+    background: rgba(28, 28, 28);
+    border-radius: 32px;
+    border-top-left-radius: 0;
+    padding: 60px 80px 140px 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    /* Separa o topo dos quadrados brancos */
+}
+
+/* --- TOPO: Título e Carrossel --- */
+.resultados-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+
+/* O Título Gigante */
+.resultados-titulo {
+    position: relative;
+    /* Segura o "&" absoluto dentro dele */
+    z-index: 2;
+}
+
+.resultados-titulo h2 {
+    color: #ffffff;
+    font-family: 'StevieSansBlack';
+    font-size: 75px;
+    line-height: 0.9;
+    letter-spacing: -4%;
+    margin: 0;
+    position: relative;
+    z-index: 2;
+    /* Fica na frente do "&" */
+}
+
+.texto-gradiente {
+    background: linear-gradient(135deg, #FF9D00 0%, #FF6A00 100%);
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+
+    display: inline-block;
+}
+
+/* A mágica do "&" alaranjado atrás do texto */
+.ampersand {
+    position: absolute;
+    font-family: 'StevieSansBlack';
+    font-size: 131px;
+    /* color: #ff9300; */
+    bottom: 0px;
+    right: -67px;
+    line-height: 1;
+    z-index: 1;
+    transform: rotate(7.38deg);
+    transition: all 0.3s;
+}
+
+.ampersand:hover {
+    transform: translateX(5px);
+}
+
+/* --- O MOCKUP DO CARROSSEL --- */
+.carrossel-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+.slide-item {
+    position: absolute;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    /* Sombra pesada para dar profundidade */
+}
+
+/* Usando porcentagens para ele encolher sozinho no celular! */
+.slide-centro {
+    width: 75%;
+    height: 100%;
+    background-color: #ff0000;
+    /* Vermelho */
+    z-index: 3;
+}
+
+.slide-dir {
+    width: 65%;
+    height: 80%;
+    background-color: #ff8800;
+    /* Laranja */
+    z-index: 2;
+    right: 0;
+    /* Cola na direita */
+}
+
+.slide-esq {
+    width: 65%;
+    height: 80%;
+    background-color: #ffcc00;
+    /* Amarelo */
+    z-index: 1;
+    left: 0;
+    /* Cola na esquerda */
+}
+
+/* --- GRID DE QUADRADOS BRANCOS --- */
+.brancos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 colunas iguais */
+    gap: 40px;
+}
+
+.box-branco {
+    background-color: #ffffff;
+    border-radius: 24px;
+    aspect-ratio: 1 / 1;
+    /* Força a div a ser sempre um quadrado perfeito */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* ========================================
+   RESPONSIVIDADE DA NOVA SEÇÃO
+======================================== */
+@media (max-width: 1080px) {
+    .resultados-card {
+        padding: 50px 40px;
+    }
+
+    .resultados-titulo h2 {
+        font-size: 55px;
+    }
+
+    .ampersand {
+        font-size: 120px;
+        right: -50px;
+    }
+}
+
+@media (max-width: 920px) {
+
+    /* No tablet, empilha o título e o carrossel */
+    .resultados-topo {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 50px;
+    }
+
+    .carrossel-container {
+        max-width: 100%;
+        /* Deixa o carrossel ocupar a largura toda */
+        height: 400px;
+        /* Aumenta a altura para ficar imponente */
+    }
+}
+
+@media (max-width: 580px) {
+
+    /* Celular */
+    .resultados-wrapper {
+        padding: 0 20px;
+    }
+
+    .resultados-card {
+        padding: 40px 20px;
+        border-radius: 24px;
+    }
+
+    .resultados-titulo h2 {
+        font-size: 45px;
+    }
+
+    .ampersand {
+        font-size: 100px;
+        right: -40px;
+    }
+
+    .carrossel-container {
+        height: 250px;
+        /* Reduz a altura pro mobile */
+    }
+
+    /* Transforma os quadrados brancos em 1 coluna só */
+    .brancos-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+/* ========================================
+   SEÇÃO: SOBRE A PLAY (CARD LARANJA SÓLIDO)
+======================================== */
+.sobre-section {
+    width: 100%;
+    position: relative;
+    z-index: 10;
+    margin-bottom: -120px;
+}
+
+/* Container para alinhar a aba na direita */
+.sobre-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+/* O Card Laranja Principal */
+.sobre-card {
+    width: 100%;
+    background: linear-gradient(135deg, #FFB300 0%, #FF7B00 100%);
+    /* Gradiente brabo */
+    border-radius: 32px;
+    border-top-right-radius: 0;
+    /* Conecta suave com a aba */
+    padding: 70px 80px 160px 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    /* Distância entre o texto e o box escuro */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+/* --- TOPO: TEXTO E LOGO --- */
+.sobre-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sobre-text h3 {
+    font-family: 'StevieSansBlack';
+    font-size: 38px;
+    color: #ffffff;
+    /* Pela imagem, o texto superior é branco */
+    margin: 0 0 5px 0;
+}
+
+.sobre-text h2 {
+    font-family: 'StevieSansBlack';
+    font-size: 80px;
+    color: #1a1a1a;
+    /* Preto da marca */
+    line-height: 0.95;
+    letter-spacing: -4%;
+    margin: 0 0 30px 0;
+}
+
+.sobre-text p {
+    font-family: 'StevieSansBook';
+    font-size: 27px;
+    color: #ffffff;
+    line-height: 1.4;
+    margin: 0 0 40px 0;
+    max-width: 750px;
+}
+
+.sobre-logo {
+    margin-right: 10%;
+}
+
+.btn-black {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    font-family: 'StevieSansBlack';
+    font-size: 24px;
+    padding: 16px 36px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-black:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* --- BASE: BOX ESCURO MOTIVOS --- */
+.motivos-box {
+    background-color: #1f1f1f;
+    /* Fundo escuro fosco */
+    border-radius: 32px;
+    padding: 50px 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+}
+
+.motivos-box h2 {
+    font-family: 'StevieSansBlack';
+    font-size: 70px;
+    color: #ffffff;
+    margin: 0;
+    letter-spacing: -4%;
+    text-align: center;
+}
+
+.destaque-laranja-texto {
+    color: #ff9300;
+}
+
+/* O Grid de 4 Colunas */
+.motivos-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 colunas iguais */
+    gap: 25px;
+    width: 100%;
+}
+
+.motivo-item {
+    background: linear-gradient(135deg, #FF9D00 0%, #FE7800 100%);
+    border-radius: 16px;
+    padding: 25px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+}
+
+.motivo-item:hover {
+    transform: translateY(-5px);
+}
+
+.motivo-item p {
+    font-family: 'StevieSansBook';
+    font-size: 20px;
+    color: #ffffff;
+    margin: 0;
+    text-align: center;
+    line-height: 1.3;
+}
+
+/* ========================================
+   SEÇÃO: SÓCIOS (PASTA ESCURA REFEITA)
+======================================== */
+.socios-section {
+    width: 100%;
+    position: relative;
+    z-index: 10;
+    padding-bottom: 80px;
+}
+
+.socios-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* Aba fica colada na ESQUERDA */
+}
+
+/* A Aba na Esquerda (Usando a máscara SVG e o truque do z-index) */
+.aba-socios {
+    width: 250px;
+    height: 50px;
+    background: rgba(10, 10, 10, 0.6);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    -webkit-mask-image: url('assets/aba.svg');
+    mask-image: url('assets/aba.svg');
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+
+    position: relative;
+    z-index: 2;
+    /* Fica acima para matar a linha */
+    margin-bottom: -1px;
+}
+
+/* O Corpo Principal (Usando suas variáveis novas) */
+.socios-card {
+    position: relative;
+    z-index: 1;
+    /* Fica por baixo da aba */
+    width: 100%;
+    background: rgba(10, 10, 10, 0.6);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-radius: 32px;
+    border-top-left-radius: 0;
+    /* Zera onde conecta com a aba */
+    padding: 70px 80px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+.socios-titulo {
+    font-family: 'StevieSansBlack';
+    font-size: 122px;
+    color: #ffffff;
+    letter-spacing: -4%;
+    margin: 0 0 60px 0;
+}
+
+/* --- LAYOUT FLEXBOX DOS SÓCIOS --- */
+.socios-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    /* Distância vertical entre o Yan e o Paulo */
+    width: 100%;
+}
+
+.socio-linha {
+    display: flex;
+    align-items: center;
+    /* Centraliza a foto com o texto na vertical */
+    justify-content: space-between;
+    /* Joga um pro canto e outro pro outro */
+    width: 100%;
+    gap: 40px;
+}
+
+/* Box de Texto */
+.socio-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    max-width: 55%;
+    /* Impede o texto de cruzar o meio da tela, mantendo o visual alternado */
+}
+
+.text-right {
+    text-align: right;
+    align-items: flex-end;
+}
+
+.text-left {
+    text-align: left;
+    align-items: flex-start;
+}
+
+.socio-info h3 {
+    font-family: 'StevieSansBlack';
+    font-size: 90px;
+    color: #ff9300;
+    margin: 0 0 15px 0;
+    letter-spacing: -2%;
+}
+
+.socio-info p {
+    font-family: 'StevieSansBook';
+    font-size: 27px;
+    color: #ffffff;
+    line-height: 1.5;
+    margin: 0;
+    opacity: 0.9;
+}
+
+/* Área para inserir as fotos depois */
+.socio-avatar {
+    width: 120px;
+    /* Pode aumentar esse tamanho depois dependendo da foto */
+    height: 120px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    border: 2px solid #555;
+    background-size: cover;
+    background-position: center;
+    flex-shrink: 0;
+    /* Impede a bolinha de ser "esmagada" se o texto for muito grande */
+}
+
+/* ========================================
+   FOOTER (RODAPÉ LARANJA)
+======================================== */
+.footer-section {
+    width: 100%;
+    background: linear-gradient(135deg, #FFB300 0%, #FF7B00 100%);
+    /* Laranja Premium */
+    border-top-left-radius: 100px;
+    /* Bordas massivas */
+    border-top-right-radius: 100px;
+    padding: 60px 40px 40px 40px;
+    position: relative;
+    z-index: 20;
+    margin-top: -20px;
+    /* Sobe um pouco para grudar melhor no fundo */
+}
+
+.footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.footer-container h2 {
+    font-family: 'StevieSansBlack';
+    font-size: 40px;
+    color: #1a1a1a;
+    margin: 0;
+}
+
+.footer-logo {
+    margin-bottom: 20px;
+}
+
+.contatos-row {
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.contato-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'StevieSansBlack';
+    font-size: 20px;
+    color: #1a1a1a;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.contato-link:hover {
+    opacity: 0.7;
+}
+
+/* ========================================
+   RESPONSIVIDADE (SÓCIOS E FOOTER)
+======================================== */
+@media (max-width: 1080px) {
+    .socios-card {
+        padding: 50px;
+    }
+
+    .socios-titulo {
+        font-size: 60px;
+    }
+
+    .socio-info h3 {
+        font-size: 35px;
+    }
+
+    .footer-section {
+        border-top-left-radius: 60px;
+        border-top-right-radius: 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    .contatos-row {
+        flex-direction: column;
+        /* Empilha os contatos um embaixo do outro */
+        gap: 20px;
+        align-items: center;
+    }
+}
+
+@media (max-width: 580px) {
+    .socios-card {
+        padding: 40px 20px;
+        border-radius: 24px;
+    }
+
+    .socios-titulo {
+        font-size: 45px;
+        margin-bottom: 30px;
+    }
+
+    .socio-info h3 {
+        font-size: 30px;
+    }
+
+    .socio-info p {
+        font-size: 16px;
+    }
+
+    .footer-section {
+        border-top-left-radius: 40px;
+        border-top-right-radius: 40px;
+        padding: 40px 20px 30px 20px;
+    }
+
+    .footer-container h2 {
+        font-size: 24px;
+        text-align: center;
+    }
+}
+
+/* ========================================
+   CORPO DA PASTA (COM MÁSCARA SVG)
+======================================== */
+.folder-card-mascarado {
+    position: relative;
+    width: 100%;
+
+    /* z-index: 2; */
+
+    -webkit-mask-image: url('assets/aba2.svg');
+    mask-image: url('assets/aba2.svg');
+
+    /* Força o SVG a esticar e preencher a div inteira */
+    /* -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%; */
+
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+
+    padding: 43px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+
+.diagnostico-section .folder-wrapper .folder-card-mascarado {
+    background: rgba(255, 255, 255, 0.05);
+    transform: scaleX(-1);
+}
+
+.resultados-wrapper .folder-card-mascarado {
+    background-color: rgba(28, 28, 28);
+}
+
+.sobre-section .folder-wrapper .folder-card-mascarado {
+    transform: scaleX(-1);
+    background: linear-gradient(-6deg, #FFB300 0%, #FF7B00 100%);
+    /* margin-bottom: -2px; */
+}
+
+.socios-section .folder-wrapper .folder-card-mascarado {
+    background: rgba(10, 10, 10, 0.6);
+    backdrop-filter: blur(80px);
+    -webkit-backdrop-filter: blur(80px);
+}
+
+/* ========================================
+   MODAL DE DIAGNÓSTICO
+======================================== */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    /* top, left, right, bottom 0 */
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+
+    /* Escondido por padrão com animação suave */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+/* Classe que o Javascript vai adicionar para mostrar o modal */
+.modal-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-box {
+    background: #1a1a1a;
+    width: 100%;
+    max-width: 550px;
+    border-radius: 32px;
+    padding: 50px;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+    max-height: 90vh;
+    /* Nunca vai ser maior que 90% da tela */
+    overflow-y: auto;
+    /* Se o conteúdo vazar, cria o scroll na vertical */
+}
+
+.modal-overlay.open .modal-box {
+    transform: translateY(0);
+}
+
+.modal-close {
+    position: absolute;
+    top: 25px;
+    right: 30px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 35px;
+    line-height: 1;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.modal-close:hover {
+    color: #ff9300;
+}
+
+.modal-header p {
+    color: rgba(255, 255, 255, 0.7);
+    font-family: 'StevieSansBook';
+    font-size: 21px;
+    text-align: center;
+    margin: 0 0 30px 0;
+}
+
+/* Inputs e Formulário */
+.form-step {
+    display: none;
+    /* Esconde todos os passos */
+    animation: fadeIn 0.4s ease;
+}
+
+.form-step.active {
+    display: block;
+    /* Mostra só o ativo */
+}
+
+.input-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-group label {
+    color: #fff;
+    font-family: 'StevieSansBlack';
+    font-size: 14px;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 15px;
+    color: #fff;
+    font-family: 'StevieSansBook';
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.input-group textarea {
+    resize: vertical;
+    max-height: 200px;
+}
+
+.input-group textarea::placeholder {
+    color: #fff;
+}
+
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus {
+    border-color: #ff9300;
+}
+
+/* Botões do Modal */
+.btn-next {
+    width: 180px;
+    background: linear-gradient(135deg, #FF9D00 0%, #FE7800 100%);
+    color: #fff;
+    font-family: 'StevieSansBlack';
+    font-size: 18px;
+    border: none;
+    border-radius: 30px;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.btn-laranja {
+    flex: 1;
+    background: linear-gradient(135deg, #FF9D00 0%, #FE7800 100%);
+    color: #fff;
+    font-family: 'StevieSansBlack';
+    font-size: 18px;
+    border: none;
+    border-radius: 30px;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.btn-ghost {
+    flex: 1;
+    background: transparent;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    font-family: 'StevieSansBlack';
+    cursor: pointer;
+    font-size: 18px;
+    padding: 15px;
+}
+
+/* Mensagem de Sucesso */
+.form-success {
+    display: none;
+    text-align: center;
+}
+
+.form-success h3 {
+    color: #ffffff;
+    font-family: 'StevieSansBlack';
+    font-size: 22px;
+    margin: 0;
+}
+
+.form-success p {
+    font-family: 'StevieSansLight';
+    font-weight: 400;
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.form-success.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responsivo Mobile */
+@media (max-width: 580px) {
+    .modal-box {
+        padding: 40px 25px;
+    }
+
+    .modal-actions {
+        flex-direction: column-reverse;
+    }
+}
+
+/* ========================================
+   CUSTOM SCROLLBAR PARA O MODAL
+======================================== */
+.modal-box::-webkit-scrollbar {
+    width: 8px;
+    /* Deixa a barra mais fininha e elegante */
+}
+
+.modal-box::-webkit-scrollbar-track {
+    background: transparent;
+    /* Fundo invisível */
+    border-radius: 10px;
+    margin-block: 20px;
+    /* Dá um respiro nas pontas para não bater na borda da caixa */
+}
+
+.modal-box::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    /* Cor da barrinha */
+    border-radius: 10px;
+}
+
+.modal-box::-webkit-scrollbar-thumb:hover {
+    background: #ff9300;
+    /* Fica laranja quando o mouse passa por cima! */
+}
+
+/* ========================================
+   CUSTOM SELECT (PASSO 2)
+======================================== */
+
+.custom-select-wrapper {
+    position: relative;
+    margin-bottom: 20px;
+    font-family: 'StevieSansBlack';
+}
+
+/* ========================================
+   MODIFICADOR: ABRIR SELECT PARA CIMA
+======================================== */
+
+/* Joga a caixa de opções para cima do botão */
+.custom-select-wrapper.open-up .custom-options {
+    top: auto;
+    bottom: 100%; 
+    border-top: 1px solid #ffffff; 
+    border-bottom: none; /* Tira a borda de baixo para grudar no laranja */
+    
+    /* Arredonda os cantos de cima e deixa reto embaixo */
+    border-radius: 20px 20px 0 0; 
+    
+    /* Inverte a direção inicial da animação para vir de cima */
+    transform: translateY(10px); 
+}
+
+/* Animação quando abre para cima */
+.custom-select-wrapper.open-up.open .custom-options {
+    transform: translateY(0);
+}
+
+/* Ajuste do botão laranja quando a lista abre para cima */
+.custom-select-wrapper.open-up.open .custom-select-trigger {
+    /* Deixa reto em cima para conectar na lista, e arredondado embaixo */
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+/* Esconde o Select Nativo com segurança (mantendo funcional pro Form) */
+.custom-select-wrapper select {
+    display: none; 
+}
+
+/* A caixa principal que o usuário clica */
+.custom-select-trigger {
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 20px;
+    padding: 16px 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* HOVER: Fica branco com texto preto */
+.custom-select-wrapper:not(.open) .custom-select-trigger:hover {
+    background: #ffffff;
+    color: #1a1a1a;
+}
+
+/* ESTADO ABERTO (CLICK): Fundo Laranja */
+.custom-select-wrapper.open .custom-select-trigger {
+    background: linear-gradient(135deg, #FF9D00 0%, #FE7800 100%);
+    color: #ffffff;
+    border-color: transparent;
+    /* Zera o raio de baixo para conectar com a lista de opções */
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0; 
+}
+
+/* Container da Lista de Opções */
+.custom-options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #1a1a1a; /* Fundo escuro */
+    border: 1px solid #ffffff; /* Borda branca igual a print */
+    border-top: none; /* Tira a borda de cima para grudar no laranja */
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    overflow: hidden;
+    z-index: 10;
+    
+    /* Escondido por padrão */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.2s ease;
+}
+
+.custom-select-wrapper.open .custom-options {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Cada Opção Individual */
+.custom-option {
+    display: block;
+    padding: 15px 25px;
+    color: #ffffff;
+    font-size: 16px;
+    font-family: 'StevieSansBook';
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Linha divisória fina */
+    transition: background 0.2s, color 0.2s;
+}
+
+.custom-option:last-child {
+    border-bottom: none;
+}
+
+/* HOVER DAS OPÇÕES: Fica branco com texto preto */
+.custom-option:hover {
+    background: #ffffff;
+    color: #1a1a1a;
+}
