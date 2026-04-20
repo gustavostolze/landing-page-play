@@ -62,8 +62,8 @@ body.no-scroll {
     width: 100%;
     height: 70px;
     background: rgba(255, 255, 255, 0.02);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     border-bottom-left-radius: 35px;
     border-bottom-right-radius: 35px;
     display: flex;
@@ -136,8 +136,8 @@ body.no-scroll {
     max-width: 600px;
     position: relative;
     background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-radius: 32px;
     padding: 50px 40px;
     display: flex;
@@ -449,7 +449,7 @@ body.no-scroll {
 .bolha {
     position: absolute;
     border-radius: 50%;
-    filter: blur(25px);
+    filter: blur(12px);
 }
 
 
@@ -541,6 +541,7 @@ body.no-scroll {
     /* Ciclo de 10 segundos, começa imediatamente */
     animation: investida-direita 10s ease-in-out infinite;
     animation-delay: 0s;
+    transform: translateZ(0); /* Força o uso da GPU */
 }
 
 /* 2. O Pelotão do Meio (Vai logo em seguida, esticando mais) */
@@ -549,6 +550,7 @@ body.no-scroll {
     /* Ciclo um pouco mais longo, começa 3 segundos depois */
     animation: investida-direita 12s ease-in-out infinite;
     animation-delay: -3s;
+    transform: translateZ(0); /* Força o uso da GPU */
     /* Delay negativo faz a animação já começar no meio do caminho */
 }
 
@@ -558,6 +560,7 @@ body.no-scroll {
     /* Ciclo bem mais lento, criando uma base pesada */
     animation: investida-direita 15s ease-in-out infinite;
     animation-delay: -7s;
+    transform: translateZ(0); /* Força o uso da GPU */
 }
 
 /* =========================================
@@ -594,6 +597,7 @@ body.no-scroll {
 #cluster-4 .c4-topo-dir {
     animation: investida-esquerda 11s ease-in-out infinite;
     animation-delay: 0s;
+    transform: translateZ(0); /* Força o uso da GPU */
 }
 
 /* 2. O Pelotão do Meio e a Bolha Central (Avançam logo depois) */
@@ -602,6 +606,7 @@ body.no-scroll {
 #cluster-4 .c4-meio-dir {
     animation: investida-esquerda 13s ease-in-out infinite;
     animation-delay: -4s;
+    transform: translateZ(0); /* Força o uso da GPU */
     /* Já começa no meio do bote */
 }
 
@@ -609,6 +614,7 @@ body.no-scroll {
 #cluster-4 .c4-baixo-esq {
     animation: investida-esquerda 16s ease-in-out infinite;
     animation-delay: -9s;
+    transform: translateZ(0); /* Força o uso da GPU */
 }
 
 
@@ -1307,8 +1313,6 @@ section {
     width: 250px;
     height: 50px;
     background: rgba(10, 10, 10, 0.6);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
 
     -webkit-mask-image: url('assets/aba.svg');
     mask-image: url('assets/aba.svg');
@@ -1581,8 +1585,6 @@ section {
 
 .socios-section .folder-wrapper .folder-card-mascarado {
     background: rgba(10, 10, 10, 0.6);
-    backdrop-filter: blur(80px);
-    -webkit-backdrop-filter: blur(80px);
 }
 
 /* ========================================
@@ -1593,8 +1595,8 @@ section {
     inset: 0;
     /* top, left, right, bottom 0 */
     background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
     z-index: 9999;
     display: flex;
     align-items: center;
