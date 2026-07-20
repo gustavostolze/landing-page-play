@@ -54,6 +54,10 @@
     font-size: 108px;
     letter-spacing: -4%;
     margin-left: -25px;
+
+    text-shadow: 
+        0px 8px 15px rgba(0, 0, 0, 0.6),
+        0px 15px 35px rgba(0, 0, 0, 0.8);
 }
 
 .hero-card p {
