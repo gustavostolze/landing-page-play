@@ -1,17 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     const imagensTopo = [
-        'assets/google-reviews/Prints/Ana Flávia.jpeg',
-        'assets/google-reviews/Prints/Andersson Silva.jpeg',
-        'assets/google-reviews/Prints/Anne Francis da Costa.jpeg',
-        'assets/google-reviews/Prints/Buteco da Esquina.jpeg',
-        'assets/google-reviews/Prints/Diego Silva.jpeg',
-        'assets/google-reviews/Prints/Juarez Medeiros.jpeg',
-        'assets/google-reviews/Prints/Juninho.jpeg',
-        'assets/google-reviews/Prints/Karla Caroline.jpeg',
-        'assets/google-reviews/Prints/Leonardo Prado.jpeg',
-        'assets/google-reviews/Prints/Pedro Ferreira.jpeg',
-        'assets/google-reviews/Prints/Rodrigo Nunes.jpeg',
+        'assets/google-reviews/ANA FLÁVIA.png',
+        'assets/google-reviews/ANDERSON SILVA.png',
+        'assets/google-reviews/ANNE FRANCIS.png',
+        'assets/google-reviews/BUTECO DA ESQUINA.png',
+        'assets/google-reviews/DIEGO SILVA.png',
+        'assets/google-reviews/JUAREZ MEDEIROS.png',
+        'assets/google-reviews/JUNINHO.png',
+        'assets/google-reviews/KARLA CAROLINE.png',
+        'assets/google-reviews/LEONARDO PRADO.png',
+        'assets/google-reviews/PEDRO CICONELE.png',
+        'assets/google-reviews/RODRIGO NUNES.png',
     ];
 
     const imagensBase = [
@@ -34,105 +34,112 @@ document.addEventListener("DOMContentLoaded", () => {
         'assets/clients/urca prime.png',
     ];
 
-    // 2. FUNÇÃO PARA POPULAR A ESTEIRA (Com suporte a Clone para Loop Infinito)
-    function popularTrack(trackElement, listaImagens) {
+    // ==========================================
+    // 1. LÓGICA DO TOPO (ROLETA 3D HORIZONTAL)
+    // ==========================================
+
+    const containerTopo = document.querySelector('.carrossel-container');
+    if(containerTopo) containerTopo.innerHTML = ''; 
+
+    // Cria as cartas no DOM
+    const slidesTopo = imagensTopo.map(src => {
+        const div = document.createElement('div');
+        div.className = 'slide-item slide-hidden'; // Nascem escondidas
+        div.style.backgroundImage = `url('${src}')`;
+        div.style.backgroundSize = 'cover';
+        div.style.backgroundPosition = 'left center';
+        containerTopo.appendChild(div);
+        return div;
+    });
+
+    let indexAtualTopo = 0;
+    const totalTopo = slidesTopo.length;
+
+    // A FUNÇÃO CORRIGIDA: Aplica uma classe exclusiva por vez
+    function atualizarRoletaTopo() {
+        slidesTopo.forEach((slide, i) => {
+            if (i === indexAtualTopo) {
+                slide.className = 'slide-item slide-centro'; // Vem pra frente
+            } else if (i === (indexAtualTopo + 1) % totalTopo) {
+                slide.className = 'slide-item slide-dir'; // Fica na direita aguardando
+            } else if (i === (indexAtualTopo - 1 + totalTopo) % totalTopo) {
+                slide.className = 'slide-item slide-esq'; // Vai pra esquerda depois de passar
+            } else {
+                slide.className = 'slide-item slide-hidden'; // Some no fundo
+            }
+        });
+    }
+
+    // Inicializa a primeira visão
+    atualizarRoletaTopo();
+
+    // Roda a roleta a cada 3 segundos
+    setInterval(() => {
+        if (totalTopo > 0) {
+            indexAtualTopo = (indexAtualTopo + 1) % totalTopo;
+            atualizarRoletaTopo();
+        }
+    }, 3000);
+
+
+    // ==========================================
+    // 2. LÓGICA DA BASE (DESLIZE HORIZONTAL CONTÍNUO)
+    // ==========================================
+    
+    function popularTrackBase(trackElement, listaImagens) {
         if (!trackElement || listaImagens.length === 0) return;
         trackElement.innerHTML = '';
 
-        // Adiciona as imagens originais
         listaImagens.forEach(src => {
             const img = document.createElement('img');
             img.src = src;
             trackElement.appendChild(img);
         });
 
-        // CLONE: Duplica a PRIMEIRA imagem no FINAL da esteira
+        // CLONE para loop
         const clone = document.createElement('img');
         clone.src = listaImagens[0];
         trackElement.appendChild(clone);
     }
 
-    // Popula o Topo
-    const tEsq = document.getElementById('track-esq');
-    const tCentro = document.getElementById('track-centro');
-    const tDir = document.getElementById('track-dir');
-
-    popularTrack(tEsq, imagensTopo);
-    popularTrack(tCentro, imagensTopo);
-    popularTrack(tDir, imagensTopo);
-
-    // Popula a Base (Quadrados Brancos)
     const tracksBase = document.querySelectorAll('#grid-base .slider-track');
-    tracksBase.forEach(track => popularTrack(track, imagensBase));
+    tracksBase.forEach(track => popularTrackBase(track, imagensBase));
 
-
-    // 3. ESTADOS E PONTEIROS INDEPENDENTES (Para nascerem com fotos diferentes)
-
-    // O topo começa desfasado: Esquerda (0), Centro (1), Direita (2)
-    let posEsq = 0;
-    let posCentro = 1 % imagensTopo.length;
-    let posDir = 2 % imagensTopo.length;
-
-    // A base também começa desfasada entre os 3 quadradinhos
     let posBase = [0, 1 % imagensBase.length, 2 % imagensBase.length];
 
+    function aplicarPosicoesIniciaisBase() {
+        tracksBase.forEach((track, i) => {
+            track.style.transform = `translateX(-${posBase[i] * 100}%)`;
+        });
+    }
+    
+    aplicarPosicoesIniciaisBase();
 
-    // 4. FUNÇÃO AUXILIAR DE DESLOCAMENTO SEM REBOBINAR (Teleporte)
-    function moverEteleportar(trackElement, indexAtual, totalImagens) {
+    function moverEteleportarBase(trackElement, indexAtual, totalImagens) {
         if (!trackElement) return (indexAtual + 1) % totalImagens;
 
         const proximoIndex = indexAtual + 1;
         const shiftPercent = -(proximoIndex * 100);
 
-        // Ativa a animação e move para o próximo item (ou para o clone)
         trackElement.style.transition = 'transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)';
         trackElement.style.transform = `translateX(${shiftPercent}%)`;
 
-        // Se moveu para o CLONE (que fica na posição = totalImagens)
         if (proximoIndex === totalImagens) {
             setTimeout(() => {
-                // Desliga a transição instantaneamente e "teleporta" de volta para a foto 0
                 trackElement.style.transition = 'none';
                 trackElement.style.transform = 'translateX(0%)';
-            }, 600); // Aguarda terminar a animação de 0.6s
-
-            return 0; // Reseta o ponteiro pra 0
+            }, 600);
+            return 0;
         }
-
         return proximoIndex;
     }
 
-
-    // 5. APLICAÇÃO DAS POSIÇÕES INICIAIS (Para as imagens não nascerem iguais)
-    function aplicarPosicoesIniciais() {
-        if (tEsq) tEsq.style.transform = `translateX(-${posEsq * 100}%)`;
-        if (tCentro) tCentro.style.transform = `translateX(-${posCentro * 100}%)`;
-        if (tDir) tDir.style.transform = `translateX(-${posDir * 100}%)`;
-
-        tracksBase.forEach((track, i) => {
-            track.style.transform = `translateX(-${posBase[i] * 100}%)`;
-        });
-    }
-
-    aplicarPosicoesIniciais();
-
-
-    // 6. LOOP AUTOMÁTICO A CADA 2 SEGUNDOS
     setInterval(() => {
-        // Move o Topo
-        if (imagensTopo.length > 0) {
-            posEsq = moverEteleportar(tEsq, posEsq, imagensTopo.length);
-            posCentro = moverEteleportar(tCentro, posCentro, imagensTopo.length);
-            posDir = moverEteleportar(tDir, posDir, imagensTopo.length);
-        }
-    }, 3000);
-
-        setInterval(() => {
-        // Move a Base
         if (imagensBase.length > 0) {
             tracksBase.forEach((track, i) => {
-                posBase[i] = moverEteleportar(track, posBase[i], imagensBase.length);
+                posBase[i] = moverEteleportarBase(track, posBase[i], imagensBase.length);
             });
         }
     }, 1800);
+
 });

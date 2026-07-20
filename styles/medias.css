@@ -263,7 +263,7 @@
 
     .info-card {
         width: 152px;
-        height: 68px;
+        height: 80px;
         padding: 12px;
         gap: 0;
     }
@@ -278,7 +278,7 @@
     }
 
     .info-card p {
-        font-size: 8px;
+        font-size: 8px !important;
     }
 
     .diag-grid .info-card:nth-child(3) p,
@@ -444,7 +444,7 @@
     }
 
     .carrossel-container {
-        height: 250px;
+        min-height: 250px;
     }
 
     .brancos-grid {
@@ -478,7 +478,7 @@
     }
 
     .motivo-item p {
-        font-size: 8px;
+        font-size: 13px;
     }
 
     .btn-black {
@@ -505,7 +505,7 @@
     }
 
     .socio-yan .socio-desc{
-        text-align: center;
+        text-align: right;
         padding: 10px 0px;
     }
 

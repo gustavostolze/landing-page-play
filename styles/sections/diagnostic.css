@@ -75,8 +75,16 @@
     border-radius: 0px 16px 16px 16px;
 }
 
+.diag-grid .info-card:nth-child(1) p {
+    font-size: 33px;
+}
+
 .diag-grid .info-card:nth-child(2) {
     border-radius: 16px 0px 16px 16px;
+}
+
+.diag-grid .info-card:nth-child(2) p {
+    font-size: 33px;
 }
 
 .diag-grid .info-card:nth-child(3) {
@@ -116,6 +124,7 @@
     font-family: 'StevieSansBlack';
     font-size: 34px;
     letter-spacing: -4%;
+    padding-bottom: 5px;
     margin: 0;
 }
 
