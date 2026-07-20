@@ -86,62 +86,103 @@
 .carrossel-container {
     position: relative;
     width: 100%;
-    max-width: 600px;
-    height: 320px;
+    max-width: 1000px;
+    margin-left: 40px;
+    min-height: 280px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex: 1;
+    pointer-events: none;
 }
 
 .slide-item {
     position: absolute;
     border-radius: 20px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
-    /* Sombra pesada para dar profundidade */
+    
+    /* Prepara para receber imagens de fundo */
+    background-size: cover;
+    background-position: center;
+    background-color: #333; /* Fundo escuro enquanto a imagem carrega */
+    
+    /* Transição suave para o efeito de fade */
+    transition: opacity 0.4s ease-in-out;
 }
 
 /* Usando porcentagens para ele encolher sozinho no celular! */
 .slide-centro {
     width: 75%;
     height: 100%;
-    background-color: #ff0000;
-    /* Vermelho */
     z-index: 3;
 }
 
 .slide-dir {
     width: 65%;
     height: 80%;
-    background-color: #ff8800;
-    /* Laranja */
     z-index: 2;
     right: 0;
-    /* Cola na direita */
 }
 
 .slide-esq {
     width: 65%;
     height: 80%;
-    background-color: #ffcc00;
-    /* Amarelo */
     z-index: 1;
     left: 0;
-    /* Cola na esquerda */
 }
 
 /* --- GRID DE QUADRADOS BRANCOS --- */
 .brancos-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    /* 3 colunas iguais */
     gap: 40px;
+    pointer-events: none;
 }
 
 .box-branco {
-    background-color: #ffffff;
     border-radius: 24px;
     aspect-ratio: 1 / 1;
     /* Força a div a ser sempre um quadrado perfeito */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+
+    position: relative;
+    overflow: hidden;
+}
+
+.slider-track {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.slider-track img, .slide-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover !important; 
+    object-position: left !important; /* Centraliza o foco da imagem */
+    flex-shrink: 0; /* Impede a imagem de esmagar */
+}
+
+/* --- MOCKUP DO TOPO (SLIDE DAS CAMADAS) --- */
+.slide-item {
+    position: absolute;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+}
+
+.slide-item .slider-track {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.slide-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    flex-shrink: 0;
 }

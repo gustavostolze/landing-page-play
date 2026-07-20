@@ -64,8 +64,8 @@ section {
 
     /* z-index: 2; */
 
-    -webkit-mask-image: url('assets/aba2.svg');
-    mask-image: url('assets/aba2.svg');
+    -webkit-mask-image: url('../assets/aba2.svg');
+    mask-image: url('../assets/aba2.svg');
 
     /* Força o SVG a esticar e preencher a div inteira */
     /* -webkit-mask-size: 100% 100%;

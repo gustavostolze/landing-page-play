@@ -134,17 +134,29 @@
                         </div>
 
                         <div class="carrossel-container">
-                            <div class="slide-item slide-esq"></div>
-                            <div class="slide-item slide-dir"></div>
-                            <div class="slide-item slide-centro"></div>
+                            <div class="slide-item slide-esq">
+                                <div class="slider-track" id="track-esq"></div>
+                            </div>
+                            <div class="slide-item slide-dir">
+                                <div class="slider-track" id="track-dir"></div>
+                            </div>
+                            <div class="slide-item slide-centro">
+                                <div class="slider-track" id="track-centro"></div>
+                            </div>
                         </div>
 
                     </div>
 
-                    <div class="brancos-grid">
-                        <div class="box-branco"></div>
-                        <div class="box-branco"></div>
-                        <div class="box-branco"></div>
+                    <div class="brancos-grid" id="grid-base">
+                        <div class="box-branco">
+                            <div class="slider-track"></div>
+                        </div>
+                        <div class="box-branco">
+                            <div class="slider-track"></div>
+                        </div>
+                        <div class="box-branco">
+                            <div class="slider-track"></div>
+                        </div>
                     </div>
 
                 </div>
@@ -172,8 +184,8 @@
 
                             <div class="sobre-logo">
                                 <div class="logo-placeholder"
-                                    style="width: 280px; height: 280px; display: flex; align-items: center; justify-content: center;">
-                                    <img src="/assets/PLAY.png">
+                                    style="width: 540px; height: auto; display: flex; align-items: center; justify-content: center;">
+                                    <img src="/assets/images/Logo com palavras.svg">
                                 </div>
                             </div>
                         </div>
@@ -212,32 +224,34 @@
                     <div class="socios-card">
 
                         <h2 class="socios-titulo">Sócios</h2>
-
                         <div class="socios-lista">
 
-                            <div class="socio-linha">
-                                <div class="socio-avatar avatar-yan"></div>
-
-                                <div class="socio-info text-right">
-                                    <h3>Yan Andrade</h3>
-                                    <p>Especialista em crescimento digital. Lidera as frentes de captação e otimização
-                                        com foco total em resultado. Comandou operações que multiplicaram o faturamento
-                                        de empresas em poucos meses, reduzindo o custo para a conquista de cada novo
-                                        cliente e acelerando a entrada de pedidos. É quem orquestra testes, define
-                                        prioridades e garante evolução contínua.</p>
-                                </div>
+                            <!-- YAN ANDRADE -->
+                            <div class="socio-item socio-yan">
+                                <!-- Coloque o caminho real da foto no style abaixo -->
+                                <div class="socio-foto" style="background-image: url('assets/images/Yan.png');"></div>
+                                <h3 class="socio-nome">Yan Andrade</h3>
+                                <p class="socio-desc">Especialista em crescimento digital. Lidera as frentes de captação
+                                    e otimização com foco
+                                    total em resultado. Comandou operações que multiplicaram o faturamento de empresas
+                                    em poucos meses,
+                                    reduzindo o custo para a conquista de cada novo cliente e acelerando a entrada de
+                                    pedidos. É quem orquestra
+                                    testes, define prioridades e garante evolução contínua.</p>
                             </div>
 
-                            <div class="socio-linha">
-                                <div class="socio-info text-left">
-                                    <h3>Paulo Zago</h3>
-                                    <p>Mais de 20 anos ajudando marcas a venderem mais em Uberlândia. Visão estratégica
-                                        e criativa aplicada ao que importa: resultado no caixa. Traz para a sua empresa
-                                        o que não se ensina em nenhum lugar: experiência prática. Une tradição e
-                                        inovação para criar histórias de sucesso no marketing digital.</p>
-                                </div>
-
-                                <div class="socio-avatar avatar-paulo"></div>
+                            <!-- PAULO ZAGO -->
+                            <div class="socio-item socio-paulo">
+                                <!-- Coloque o caminho real da foto no style abaixo -->
+                                <div class="socio-foto" style="background-image: url('assets/images/Paulão.png');"></div>
+                                <h3 class="socio-nome">Paulo Zago</h3>
+                                <p class="socio-desc">Mais de 20 anos ajudando marcas a venderem mais em Uberlândia.
+                                    Visão estratégica e
+                                    criativa aplicada ao que importa: resultado no caixa. Traz para a sua empresa o que
+                                    não se ensina em nenhum
+                                    lugar: experiência prática. Une tradição e inovação para criar histórias de sucesso
+                                    no marketing digital.
+                                </p>
                             </div>
 
                         </div>
@@ -292,7 +306,10 @@
             <button class="modal-close" id="closeModal">&times;</button>
 
             <div class="modal-header">
-                <p><span style="color: #fff; font-weight: bold; font-family: 'StevieSansBlack';">Envie seus dados</span> e meu time entrará em<br> contato para agendar sua <span style="color: #FF9500; font-weight: bold;font-family: 'StevieSansBlack';">CONSULTORIA GRATUITA</span>.</p>
+                <p><span style="color: #fff; font-weight: bold; font-family: 'StevieSansBlack';">Envie seus dados</span>
+                    e meu time entrará em<br> contato para agendar sua <span
+                        style="color: #FF9500; font-weight: bold;font-family: 'StevieSansBlack';">CONSULTORIA
+                        GRATUITA</span>.</p>
             </div>
 
             <form id="formDiagnostico" class="modal-form">
@@ -432,6 +449,7 @@
     </div>
 
     <script src="./script.js"></script>
+    <script src="./carrossel.js"></script>
 </body>
 
 </html>

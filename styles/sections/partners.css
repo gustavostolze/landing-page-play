@@ -18,8 +18,8 @@
     height: 50px;
     background: rgba(10, 10, 10, 0.6);
 
-    -webkit-mask-image: url('assets/aba.svg');
-    mask-image: url('assets/aba.svg');
+    -webkit-mask-image: url('../../assets/aba.svg');
+    mask-image: url('../../assets/aba.svg');
     -webkit-mask-size: cover;
     mask-size: cover;
     -webkit-mask-repeat: no-repeat;
@@ -55,25 +55,6 @@
     margin: 0 0 60px 0;
 }
 
-/* --- LAYOUT FLEXBOX DOS SÓCIOS --- */
-.socios-lista {
-    display: flex;
-    flex-direction: column;
-    gap: 80px;
-    /* Distância vertical entre o Yan e o Paulo */
-    width: 100%;
-}
-
-.socio-linha {
-    display: flex;
-    align-items: center;
-    /* Centraliza a foto com o texto na vertical */
-    justify-content: space-between;
-    /* Joga um pro canto e outro pro outro */
-    width: 100%;
-    gap: 40px;
-}
-
 /* Box de Texto */
 .socio-info {
     flex: 1;
@@ -81,16 +62,6 @@
     flex-direction: column;
     max-width: 55%;
     /* Impede o texto de cruzar o meio da tela, mantendo o visual alternado */
-}
-
-.text-right {
-    text-align: right;
-    align-items: flex-end;
-}
-
-.text-left {
-    text-align: left;
-    align-items: flex-start;
 }
 
 .socio-info h3 {
@@ -115,11 +86,79 @@
     width: 120px;
     /* Pode aumentar esse tamanho depois dependendo da foto */
     height: 120px;
-    background-color: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
-    border: 2px solid #555;
     background-size: cover;
     background-position: center;
     flex-shrink: 0;
-    /* Impede a bolinha de ser "esmagada" se o texto for muito grande */
 }
+
+.socios-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 60px; /* Distância entre os sócios no mobile */
+    width: 100%;
+}
+
+.socio-item {
+    display: grid;
+    width: 100%;
+}
+
+/* Estilos Globais de Texto e Imagem */
+.socio-nome {
+    font-family: 'StevieSansBlack';
+    color: #ff9300;
+    margin: 0;
+    line-height: 1;
+    letter-spacing: -2%;
+}
+
+.socio-desc {
+    font-family: 'StevieSansBook';
+    color: #ffffff;
+    line-height: 1.5;
+    margin: 0;
+    opacity: 0.9;
+}
+
+.socio-foto {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center top;
+}
+
+/* --------------------------------------
+   MOBILE FIRST (Até 991px)
+-------------------------------------- */
+
+/* INVERTE A ORDEM NO MOBILE (Paulo em cima, Yan embaixo) */
+.socio-paulo { order: 1; }
+.socio-yan { order: 2; }
+
+/* Paulo - Mobile: Foto Esquerda, Nome Direita, Texto Baixo */
+.socio-paulo {
+    grid-template-columns: 100px 1fr;
+    grid-template-areas:
+        "foto nome"
+        "desc desc";
+    gap: 15px 20px;
+    align-items: center;
+}
+.socio-paulo .socio-foto { grid-area: foto; }
+.socio-paulo .socio-nome { grid-area: nome; text-align: left; font-size: 38px; }
+.socio-paulo .socio-desc { grid-area: desc; text-align: left; font-size: 18px; }
+
+/* Yan - Mobile: Nome Esquerda, Foto Direita, Texto Baixo */
+.socio-yan {
+    grid-template-columns: 1fr 100px;
+    grid-template-areas:
+        "nome foto"
+        "desc desc";
+    gap: 15px 20px;
+    align-items: center;
+}
+.socio-yan .socio-foto { grid-area: foto; }
+.socio-yan .socio-nome { grid-area: nome; text-align: right; font-size: 38px; }
+.socio-yan .socio-desc { grid-area: desc; text-align: right; font-size: 18px; }

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg1"
+   width="1440"
+   height="1440"
+   viewBox="0 0 1440 1440"
+   sodipodi:docname="Mail Icon.eps"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1">
+    <inkscape:page
+       x="0"
+       y="0"
+       inkscape:label="1"
+       id="page1"
+       width="1440"
+       height="1440"
+       margin="0"
+       bleed="0" />
+  </sodipodi:namedview>
+  <g
+     id="g1"
+     inkscape:groupmode="layer"
+     inkscape:label="1">
+    <g
+       id="group-R5">
+      <path
+         id="path2"
+         d="M 9015.53,2739.18 6728.42,5000.92 c -413.07,-425.51 -754.27,-791.01 -1399.99,-759.81 -575.07,27.78 -866.2,405.55 -1251.99,759.81 L 1802.15,2739.18 Z m 388.96,388.96 V 7654.18 L 7125.06,5384.75 Z m -7991.3,0 2279.42,2269.43 -2279.42,2256.61 z m 7602.34,4915 H 1802.15 L 4895.92,4957.8 c 307.23,-248.94 718.56,-248.97 1025.84,0 z m 919.35,-176.8 V 2915.98 c -67.73,-390.37 -349.84,-673.27 -751.66,-706.92 l -7532.04,-0.96 c -423.78,31.78 -727.731,329.97 -768.114,752.35 14.122,1665.25 -29.847,3336.24 22.317,4998.22 89.476,357.87 379.637,588.07 745.797,615.55 l 7532.04,-0.96 c 376.4,-24.75 709.09,-329.29 751.66,-706.92"
+         style="fill:#231f20;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         transform="matrix(0.13333333,0,0,-0.13333333,0,1440)" />
+    </g>
+  </g>
+</svg>

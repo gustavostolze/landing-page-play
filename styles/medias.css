@@ -16,6 +16,34 @@
         margin-right: 300px;
         max-width: fit-content;
     }
+
+    .resultados-topo {
+        flex-direction: column;
+    }
+
+    .resultados-wrapper {
+        margin-top: 30px;
+    }
+
+    .carrossel-container {
+        margin-left: 0;
+    }
+
+    .sobre-logo {
+        display: none;
+    }
+
+    .sobre-topo {
+        justify-content: center;
+    }
+
+    .sobre-card {
+        gap: 40px;
+    }
+
+    .motivos-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 1280px) {
@@ -29,8 +57,16 @@
 }
 
 @media (max-width: 1200px) {
-    .hero-container .hero-illustration {
-        display: none;
+    .hero-container {
+        gap: 0;
+        justify-content: center;
+    }
+
+    .hero-illustration {
+        position: absolute;
+        right: 0;
+        width: 35vw;
+        margin-bottom: 120px;
     }
 
     .hero-container {
@@ -61,6 +97,41 @@
     .folder-wrapper {
         padding: 0;
     }
+
+    .sobre-card {
+        padding: 50px 40px 120px 40px;
+        gap: 35px;
+    }
+
+    .sobre-text h3 {
+        font-size: 28px;
+    }
+
+    .sobre-text h2 {
+        font-size: 53px;
+    }
+
+    .sobre-text p {
+        font-size: 19px;
+    }
+
+    .motivos-box {
+        padding: 40px 35px;
+        gap: 32px;
+    }
+
+    .motivos-box h2 {
+        font-size: 43px;
+    }
+
+    .motivo-item p {
+        font-size: 16px;
+    }
+
+    .btn-black {
+        font-size: 18px;
+        padding: 14px 28px;
+    }
 }
 
 @media (max-width: 920px) {
@@ -77,16 +148,88 @@
         padding: 0;
     }
 
-    .resultados-topo {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 50px;
-    }
+}
 
-    .carrossel-container {
-        max-width: 100%;
-        height: 400px;
+/* --------------------------------------
+   DESKTOP (Telas a partir de 992px)
+-------------------------------------- */
+/* ========================================
+   SEÇÃO SÓCIOS - GRID RESPONSIVO
+======================================== */
+
+.socios-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 60px; /* Distância entre os sócios no mobile */
+    width: 100%;
+}
+
+.socio-item {
+    display: grid;
+    width: 100%;
+}
+
+/* Estilos Globais de Texto e Imagem */
+.socio-nome {
+    font-family: 'StevieSansBlack';
+    color: #ff9300;
+    margin: 0;
+    line-height: 1;
+    letter-spacing: -2%;
+}
+
+.socio-desc {
+    font-family: 'StevieSansBook';
+    color: #ffffff;
+    line-height: 1.5;
+    margin: 0;
+    opacity: 0.9;
+}
+
+.socio-foto {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center top;
+}
+
+
+
+
+
+/* --------------------------------------
+   DESKTOP (Telas a partir de 992px)
+-------------------------------------- */
+@media (min-width: 992px) {
+    
+    .socios-lista { gap: 100px; }
+
+    /* INVERTE A ORDEM NO DESKTOP (Yan em cima, Paulo embaixo) */
+    .socio-yan { order: 1; }
+    .socio-paulo { order: 2; }
+
+    /* Yan - Desktop: Foto Gigante Esquerda, Textos Direita */
+    .socio-yan {
+        grid-template-columns: 320px 1fr;
+        grid-template-areas:
+            "foto nome"
+            "foto desc";
+        gap: 20px 60px;
     }
+    .socio-yan .socio-nome { text-align: right; align-self: end; font-size: 90px; }
+    .socio-yan .socio-desc { text-align: right; align-self: start; font-size: 27px; }
+
+    /* Paulo - Desktop: Textos Esquerda, Foto Gigante Direita */
+    .socio-paulo {
+        grid-template-columns: 1fr 320px;
+        grid-template-areas:
+            "nome foto"
+            "desc foto";
+        gap: 20px 60px;
+    }
+    .socio-paulo .socio-nome { text-align: left; align-self: end; font-size: 90px; }
+    .socio-paulo .socio-desc { text-align: left; align-self: start; font-size: 27px; }
 }
 
 @media (max-width: 880px) {
@@ -95,7 +238,11 @@
     }
 
     .diagnostico-section .folder-wrapper {
-        margin-top: -40px;
+        margin-top: 25px;
+    }
+
+    .resultados-wrapper {
+        margin-top: 80px;
     }
 
     .diag-text h2 {
@@ -141,6 +288,11 @@
 }
 
 @media (max-width: 1080px) {
+
+    .folder-wrapper {
+        margin-top: 68px;
+    }
+    
     .resultados-card {
         padding: 50px 40px;
     }
@@ -215,7 +367,24 @@
 
     .hero-card {
         max-width: 420px;
-        padding: 50px 0;
+        padding: 40px 0px 40px 30px;
+    }
+
+    .glow-text {
+        margin-left: 0;
+    }
+
+    .hero-card p {
+        margin-left: 0;
+    }
+
+    .cta-button {
+        margin-left: 0;
+    }
+
+    .carrossel-container {
+        max-width: 370px;
+        min-height: 150px;
     }
 
     .contatos-row {
@@ -232,6 +401,14 @@
 
     .folder-wrapper {
         padding: 0;
+    }
+
+    .folder-card-mascarado {
+        padding: 0;
+    }
+
+    .sobre-section {
+        margin-top: 30px;
     }
 
     #cluster-4 {
@@ -271,8 +448,42 @@
     }
 
     .brancos-grid {
-        grid-template-columns: 1fr;
         gap: 20px;
+    }
+    
+    .sobre-card {
+        padding: 50px 20px 120px 20px;
+        gap: 35px;
+    }
+
+    .sobre-text h3 {
+        font-size: 30px;
+    }
+
+    .sobre-text h2 {
+        font-size: 49px;
+    }
+
+    .sobre-text p {
+        font-size: 14px;
+    }
+
+    .motivos-box {
+        padding: 30px 25px;
+        gap: 16px;
+    }
+
+    .motivos-box h2 {
+        font-size: 29px;
+    }
+
+    .motivo-item p {
+        font-size: 8px;
+    }
+
+    .btn-black {
+        font-size: 18px;
+        padding: 14px 28px;
     }
 
     .socios-card {
@@ -291,6 +502,11 @@
 
     .socio-info p {
         font-size: 16px;
+    }
+
+    .socio-yan .socio-desc{
+        text-align: center;
+        padding: 10px 0px;
     }
 
     .footer-section {
