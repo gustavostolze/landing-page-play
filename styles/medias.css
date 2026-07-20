@@ -1,0 +1,342 @@
+
+@media (max-width: 1520px) {
+    #cluster-1 {
+        transform: scale(1.7);
+    }
+
+    #cluster-4 {
+        transform: scale(2);
+    }
+
+    .folder-content {
+        flex-direction: column;
+    }
+
+    .diag-text {
+        margin-right: 300px;
+        max-width: fit-content;
+    }
+}
+
+@media (max-width: 1280px) {
+    #cluster-1 {
+        transform: scale(1.5);
+    }
+
+    #cluster-4 {
+        transform: scale(1.7);
+    }
+}
+
+@media (max-width: 1200px) {
+    .hero-container .hero-illustration {
+        display: none;
+    }
+
+    .hero-container {
+        justify-content: center;
+    }
+
+    #cluster-1 {
+        left: -30vw;
+    }
+
+    #cluster-4 {
+        top: -5%;
+        right: -45vw;
+    }
+
+    .diag-text h2 {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .diag-text {
+        margin: 0 115px -20px 0;
+    }
+}
+
+@media (max-width: 980px) {
+    .folder-wrapper {
+        padding: 0;
+    }
+}
+
+@media (max-width: 920px) {
+    #cluster-1 {
+        left: -60vw;
+    }
+
+    #cluster-4 {
+        top: -5%;
+        right: -65vw;
+    }
+
+    .nav-container {
+        padding: 0;
+    }
+
+    .resultados-topo {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 50px;
+    }
+
+    .carrossel-container {
+        max-width: 100%;
+        height: 400px;
+    }
+}
+
+@media (max-width: 880px) {
+    #cluster-1 {
+        top: 650px;
+    }
+
+    .diagnostico-section .folder-wrapper {
+        margin-top: -40px;
+    }
+
+    .diag-text h2 {
+        font-size: 12px;
+    }
+
+    .destaque-laranja {
+        font-size: 50px;
+    }
+
+    .diag-text p {
+        font-size: 11px;
+    }
+
+    .folder-content {
+        padding: 36px 25px;
+    }
+
+    .info-card {
+        width: 152px;
+        height: 68px;
+        padding: 12px;
+        gap: 0;
+    }
+
+    .diag-grid {
+        grid-template-columns: 183px 151px;
+        gap: 12px;
+    }
+
+    .info-card h3 {
+        font-size: 10px;
+    }
+
+    .info-card p {
+        font-size: 8px;
+    }
+
+    .diag-grid .info-card:nth-child(3) p,
+    .diag-grid .info-card:nth-child(4) p {
+        font-size: 7px;
+    }
+}
+
+@media (max-width: 1080px) {
+    .resultados-card {
+        padding: 50px 40px;
+    }
+
+    .resultados-titulo h2 {
+        font-size: 55px;
+    }
+
+    .ampersand {
+        font-size: 120px;
+        right: -50px;
+    }
+
+    .socios-card {
+        padding: 50px;
+    }
+
+    .socios-titulo {
+        font-size: 60px;
+    }
+
+    .socio-info h3 {
+        font-size: 35px;
+    }
+
+    .footer-section {
+        border-top-left-radius: 60px;
+        border-top-right-radius: 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-text {
+        font-size: 10px;
+        line-height: 1.4;
+    }
+
+    #cluster-1 {
+        left: -65vw;
+        transform: scale(1.2);
+    }
+
+    #cluster-4 {
+        top: -5%;
+        right: -70vw;
+        transform: scale(1.5);
+    }
+
+    .hero-card h2 {
+        font-size: 20px;
+    }
+
+    .glow-text {
+        font-size: 55px;
+    }
+
+    .hero-card p {
+        font-size: 15px;
+    }
+
+    .cta-button {
+        font-size: 16px;
+    }
+
+    .disclaimer {
+        font-size: 7px;
+    }
+
+    .hero-container {
+        padding: 0 15px;
+    }
+
+    .hero-card {
+        max-width: 420px;
+        padding: 50px 0;
+    }
+
+    .contatos-row {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+}
+
+@media (max-width: 580px) {
+    #cluster-1 {
+        transform: scale(0.8);
+    }
+
+    .folder-wrapper {
+        padding: 0;
+    }
+
+    #cluster-4 {
+        top: -5%;
+        transform: scale(0.9);
+    }
+
+    .logo img {
+        height: 70px;
+    }
+
+    .nav-text {
+        margin-left: -5px;
+        margin-right: 40px;
+    }
+
+    .resultados-wrapper {
+        padding: 0 20px;
+    }
+
+    .resultados-card {
+        padding: 40px 20px;
+        border-radius: 24px;
+    }
+
+    .resultados-titulo h2 {
+        font-size: 45px;
+    }
+
+    .ampersand {
+        font-size: 100px;
+        right: -40px;
+    }
+
+    .carrossel-container {
+        height: 250px;
+    }
+
+    .brancos-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .socios-card {
+        padding: 40px 20px;
+        border-radius: 24px;
+    }
+
+    .socios-titulo {
+        font-size: 45px;
+        margin-bottom: 30px;
+    }
+
+    .socio-info h3 {
+        font-size: 30px;
+    }
+
+    .socio-info p {
+        font-size: 16px;
+    }
+
+    .footer-section {
+        border-top-left-radius: 40px;
+        border-top-right-radius: 40px;
+        padding: 40px 20px 30px;
+    }
+
+    .footer-container h2 {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .modal-box {
+        padding: 40px 25px;
+    }
+
+    .modal-actions {
+        flex-direction: column-reverse;
+    }
+}
+
+@media (max-width: 400px) {
+    #cluster-1 {
+        left: -95vw;
+    }
+
+    #cluster-4 {
+        right: -100vw;
+    }
+
+    .diag-text {
+        margin: 0 90px -20px 0;
+    }
+}
+
+@media (min-width: 2330px) {
+    #cluster-1,
+    #cluster-4 {
+        transform: scale(3.2);
+    }
+}
+
+@media (min-width: 2840px) {
+    #cluster-1,
+    #cluster-4 {
+        transform: scale(3.8);
+    }
+}

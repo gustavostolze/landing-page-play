@@ -1,0 +1,55 @@
+.footer-section {
+    width: 100%;
+    background: linear-gradient(135deg, #FFB300 0%, #FF7B00 100%);
+    /* Laranja Premium */
+    border-top-left-radius: 100px;
+    /* Bordas massivas */
+    border-top-right-radius: 100px;
+    padding: 60px 40px 40px 40px;
+    position: relative;
+    z-index: 20;
+    margin-top: -20px;
+    /* Sobe um pouco para grudar melhor no fundo */
+}
+
+.footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.footer-container h2 {
+    font-family: 'StevieSansBlack';
+    font-size: 40px;
+    color: #1a1a1a;
+    margin: 0;
+}
+
+.footer-logo {
+    margin-bottom: 20px;
+}
+
+.contatos-row {
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.contato-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'StevieSansBlack';
+    font-size: 20px;
+    color: #1a1a1a;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.contato-link:hover {
+    opacity: 0.7;
+}

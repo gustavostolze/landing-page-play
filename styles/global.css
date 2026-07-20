@@ -1,0 +1,102 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #050505;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+body.no-scroll {
+    overflow: hidden;
+}
+
+section {
+    margin-bottom: -100px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ========================================
+   FONTS
+======================================== */
+@font-face {
+    font-family: 'StevieSansLight';
+    src: url('../assets/font/STEVIE\ SANS\ LIGHT.TTF') format('truetype');
+}
+
+@font-face {
+    font-family: 'StevieSansBlack';
+    src: url('../assets/font/STEVIE\ SANS\ BLACK.TTF') format('truetype');
+}
+
+@font-face {
+    font-family: 'StevieSansBook';
+    src: url('../assets/font/STEVIE\ SANS\ BOOK.TTF') format('truetype');
+}
+
+.conteudo-principal {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-top: 150px;
+}
+
+.folder-wrapper {
+    width: 100%;
+    max-width: 1768px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* FOLDER MASCARADO */
+
+.folder-card-mascarado {
+    position: relative;
+    width: 100%;
+
+    /* z-index: 2; */
+
+    -webkit-mask-image: url('assets/aba2.svg');
+    mask-image: url('assets/aba2.svg');
+
+    /* Força o SVG a esticar e preencher a div inteira */
+    /* -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%; */
+
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+
+    padding: 43px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+
+.diagnostico-section .folder-wrapper .folder-card-mascarado {
+    background: rgba(255, 255, 255, 0.05);
+    transform: scaleX(-1);
+}
+
+.resultados-wrapper .folder-card-mascarado {
+    background-color: rgba(28, 28, 28);
+}
+
+.sobre-section .folder-wrapper .folder-card-mascarado {
+    transform: scaleX(-1);
+    background: linear-gradient(-6deg, #FFB300 0%, #FF7B00 100%);
+    /* margin-bottom: -2px; */
+}
+
+.socios-section .folder-wrapper .folder-card-mascarado {
+    background: rgba(10, 10, 10, 0.6);
+}

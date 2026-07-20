@@ -1,0 +1,56 @@
+/* TAMANHOS */
+
+.t-sm {
+    width: 140px;
+    height: 140px;
+}
+
+.t-md {
+    width: 170px;
+    height: 170px;
+}
+
+.t-mdl {
+    width: 190px;
+    height: 190px;
+}
+
+.t-lg {
+    width: 240px;
+    height: 240px;
+}
+
+.t-xl {
+    width: 270px;
+    height: 270px;
+}
+
+/* CORES */
+
+.c-amarelo {
+    background-color: #FFB300;
+}
+
+.c-amarelo-v {
+    background-color: #FFCC00;
+}
+
+.c-laranja-med {
+    background-color: #FF9800;
+}
+
+.c-laranja-esc {
+    background-color: #FF6600;
+}
+
+.c-vermelho-laranja {
+    background-color: #FF4500;
+}
+
+.c-vermelho {
+    background-color: #FF0000;
+}
+
+.c-gradiente {
+    background: radial-gradient(circle, #ff5b0e 0%, #ff9819 80%);
+}

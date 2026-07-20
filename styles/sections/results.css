@@ -1,0 +1,147 @@
+.resultados-section {
+    width: 100%;
+    position: relative;
+    z-index: 10;
+}
+
+.resultados-wrapper {
+    width: 100%;
+    max-width: 1768px;
+    /* Mantém o alinhamento geral do site */
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* O Container Principal (Vidro Fosco base) */
+.resultados-card {
+    width: 100%;
+    background: rgba(28, 28, 28);
+    border-radius: 32px;
+    border-top-left-radius: 0;
+    padding: 60px 80px 140px 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    /* Separa o topo dos quadrados brancos */
+}
+
+/* --- TOPO: Título e Carrossel --- */
+.resultados-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+
+/* O Título Gigante */
+.resultados-titulo {
+    position: relative;
+    /* Segura o "&" absoluto dentro dele */
+    z-index: 2;
+}
+
+.resultados-titulo h2 {
+    color: #ffffff;
+    font-family: 'StevieSansBlack';
+    font-size: 75px;
+    line-height: 0.9;
+    letter-spacing: -4%;
+    margin: 0;
+    position: relative;
+    z-index: 2;
+    /* Fica na frente do "&" */
+}
+
+.texto-gradiente {
+    background: linear-gradient(135deg, #FF9D00 0%, #FF6A00 100%);
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+
+    display: inline-block;
+}
+
+/* A mágica do "&" alaranjado atrás do texto */
+.ampersand {
+    position: absolute;
+    font-family: 'StevieSansBlack';
+    font-size: 131px;
+    /* color: #ff9300; */
+    bottom: 0px;
+    right: -67px;
+    line-height: 1;
+    z-index: 1;
+    transform: rotate(7.38deg);
+    transition: all 0.3s;
+}
+
+.ampersand:hover {
+    transform: translateX(5px);
+}
+
+/* --- O MOCKUP DO CARROSSEL --- */
+.carrossel-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+.slide-item {
+    position: absolute;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    /* Sombra pesada para dar profundidade */
+}
+
+/* Usando porcentagens para ele encolher sozinho no celular! */
+.slide-centro {
+    width: 75%;
+    height: 100%;
+    background-color: #ff0000;
+    /* Vermelho */
+    z-index: 3;
+}
+
+.slide-dir {
+    width: 65%;
+    height: 80%;
+    background-color: #ff8800;
+    /* Laranja */
+    z-index: 2;
+    right: 0;
+    /* Cola na direita */
+}
+
+.slide-esq {
+    width: 65%;
+    height: 80%;
+    background-color: #ffcc00;
+    /* Amarelo */
+    z-index: 1;
+    left: 0;
+    /* Cola na esquerda */
+}
+
+/* --- GRID DE QUADRADOS BRANCOS --- */
+.brancos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 colunas iguais */
+    gap: 40px;
+}
+
+.box-branco {
+    background-color: #ffffff;
+    border-radius: 24px;
+    aspect-ratio: 1 / 1;
+    /* Força a div a ser sempre um quadrado perfeito */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}

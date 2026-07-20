@@ -1,0 +1,209 @@
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.cluster-de-bolhas {
+    position: relative;
+    width: 450px;
+    height: 450px;
+}
+
+.bolha {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(12px);
+}
+
+/* CLUSTER 1 */
+
+#cluster-1 {
+    /* top: 25%; */
+    top: 220px;
+    left: -20vw;
+    transform: scale(2.3);
+}
+
+.topo-cima {
+    top: 55px;
+    left: 166px;
+    z-index: 3;
+}
+
+.topo-esq {
+    top: 40px;
+    left: 50px;
+    z-index: 1;
+}
+
+.direita {
+    top: 80px;
+    left: 170px;
+    z-index: 2;
+}
+
+.baixo {
+    top: 240px;
+    left: 140px;
+    z-index: 1;
+}
+
+.baixo-esq {
+    top: 161px;
+    left: 15px;
+    z-index: 3;
+}
+
+.centro {
+    top: 85px;
+    left: 80px;
+    z-index: 4;
+}
+
+#cluster-1 .topo-cima,
+#cluster-1 .topo-esq {
+    /* Ciclo de 10 segundos, começa imediatamente */
+    animation: investida-direita 10s ease-in-out infinite;
+    animation-delay: 0s;
+    transform: translateZ(0); /* Força o uso da GPU */
+}
+
+/* 2. O Pelotão do Meio (Vai logo em seguida, esticando mais) */
+#cluster-1 .centro,
+#cluster-1 .direita {
+    /* Ciclo um pouco mais longo, começa 3 segundos depois */
+    animation: investida-direita 12s ease-in-out infinite;
+    animation-delay: -3s;
+    transform: translateZ(0); /* Força o uso da GPU */
+    /* Delay negativo faz a animação já começar no meio do caminho */
+}
+
+/* 3. O Pelotão de Baixo (Fecha a onda) */
+#cluster-1 .baixo,
+#cluster-1 .baixo-esq {
+    /* Ciclo bem mais lento, criando uma base pesada */
+    animation: investida-direita 15s ease-in-out infinite;
+    animation-delay: -7s;
+    transform: translateZ(0); /* Força o uso da GPU */
+}
+
+/* CLUSTER 4 */
+
+#cluster-4 {
+    position: absolute;
+    right: -30vw;
+    top: 10%;
+    transform: scale(2.3);
+}
+
+.c4-topo-esq {
+    top: 20px;
+    left: 55px;
+    z-index: 1;
+}
+
+.c4-topo-dir {
+    top: 15px;
+    left: 160px;
+    z-index: 1;
+}
+
+.c4-meio-esq {
+    top: 90px;
+    left: 20px;
+    z-index: 2;
+}
+
+.c4-meio-dir {
+    top: 100px;
+    left: 180px;
+    z-index: 1;
+}
+
+.c4-baixo-esq {
+    top: 190px;
+    left: 15px;
+    z-index: 1;
+}
+
+.c4-centro {
+    top: 90px;
+    left: 65px;
+    z-index: 3;
+}
+
+#cluster-4 .c4-topo-esq,
+#cluster-4 .c4-topo-dir {
+    animation: investida-esquerda 11s ease-in-out infinite;
+    animation-delay: 0s;
+    transform: translateZ(0); /* Força o uso da GPU */
+}
+
+/* 2. O Pelotão do Meio e a Bolha Central (Avançam logo depois) */
+#cluster-4 .c4-centro,
+#cluster-4 .c4-meio-esq,
+#cluster-4 .c4-meio-dir {
+    animation: investida-esquerda 13s ease-in-out infinite;
+    animation-delay: -4s;
+    transform: translateZ(0); /* Força o uso da GPU */
+    /* Já começa no meio do bote */
+}
+
+/* 3. O Pelotão de Baixo (Traz o peso por último) */
+#cluster-4 .c4-baixo-esq {
+    animation: investida-esquerda 16s ease-in-out infinite;
+    animation-delay: -9s;
+    transform: translateZ(0); /* Força o uso da GPU */
+}
+
+/* ANIMAÇÕES */
+
+@keyframes investida-direita {
+    0% {
+        /* Posição original */
+        transform: translate(0, 0) scale(1);
+    }
+
+    40% {
+        /* O bote! Vai forte para a direita (200px), sobe um pouco e infla */
+        transform: translate(130px, -20px) scale(1.15);
+    }
+
+    60% {
+        /* Dá uma flutuada lá na frente antes de recuar */
+        transform: translate(100px, 10px) scale(1.1);
+    }
+
+    100% {
+        /* Volta para a base de forma suave */
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+@keyframes investida-esquerda {
+    0% {
+        /* Posição original */
+        transform: translate(0, 0) scale(1);
+    }
+
+    40% {
+        /* O bote invertido! Vai forte para a ESQUERDA (-250px), sobe e infla */
+        transform: translate(-130px, -20px) scale(1.15);
+    }
+
+    60% {
+        /* Dá aquela flutuada antes de recuar */
+        transform: translate(-100px, 10px) scale(1.1);
+    }
+
+    100% {
+        /* Volta para a base */
+        transform: translate(0, 0) scale(1);
+    }
+}
