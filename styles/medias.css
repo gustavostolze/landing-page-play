@@ -384,7 +384,7 @@
 
     .carrossel-container {
         max-width: 370px;
-        min-height: 150px;
+        min-height: 120px;
     }
 
     .contatos-row {
@@ -441,10 +441,6 @@
     .ampersand {
         font-size: 100px;
         right: -40px;
-    }
-
-    .carrossel-container {
-        min-height: 250px;
     }
 
     .brancos-grid {
