@@ -1,17 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     const imagensTopo = [
-        'assets/google-reviews/ANA FLÁVIA.png',
-        'assets/google-reviews/ANDERSON SILVA.png',
-        'assets/google-reviews/ANNE FRANCIS.png',
-        'assets/google-reviews/BUTECO DA ESQUINA.png',
-        'assets/google-reviews/DIEGO SILVA.png',
-        'assets/google-reviews/JUAREZ MEDEIROS.png',
-        'assets/google-reviews/JUNINHO.png',
-        'assets/google-reviews/KARLA CAROLINE.png',
-        'assets/google-reviews/LEONARDO PRADO.png',
-        'assets/google-reviews/PEDRO CICONELE.png',
-        'assets/google-reviews/RODRIGO NUNES.png',
+        'assets/feedbackGoogle/ANA FLÁVIA.png',
+        'assets/feedbackGoogle/ANDERSON SILVA.png',
+        'assets/feedbackGoogle/ANNE FRANCIS.png',
+        'assets/feedbackGoogle/BUTECO DA ESQUINA.png',
+        'assets/feedbackGoogle/DIEGO SILVA.png',
+        'assets/feedbackGoogle/JUAREZ MEDEIROS.png',
+        'assets/feedbackGoogle/JUNINHO.png',
+        'assets/feedbackGoogle/KARLA CAROLINE.png',
+        'assets/feedbackGoogle/LEONARDO PRADO.png',
+        'assets/feedbackGoogle/PEDRO CICONELE.png',
+        'assets/feedbackGoogle/RODRIGO NUNES.png',
     ];
 
     const imagensBase = [
@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
         'assets/clients/DONNA FESTA.png',
         'assets/clients/DonJose.png',
         'assets/clients/Fiel.png',
+        'assets/clients/Play.png',
         'assets/clients/Pratas da Casa.png',
         'assets/clients/TM Cup.png',
         'assets/clients/URCA GEELY.png',
@@ -30,7 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
         'assets/clients/Unipac.png',
         'assets/clients/Unopar.png',
         'assets/clients/Zezao.png',
-        'assets/clients/toro.png',
         'assets/clients/urca prime.png',
     ];
 
@@ -82,57 +82,98 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 3000);
 
 
-    // ==========================================
-    // 2. LÓGICA DA BASE (DESLIZE HORIZONTAL CONTÍNUO)
+// ==========================================
+    // 2. LÓGICA DA BASE (ESTEIRA AVANÇADA 4.0 - BULLETPROOF)
     // ==========================================
     
-    function popularTrackBase(trackElement, listaImagens) {
-        if (!trackElement || listaImagens.length === 0) return;
-        trackElement.innerHTML = '';
+    const trackBase = document.getElementById('grid-base');
+    trackBase.innerHTML = ''; 
 
+    function criarCaixasBase(listaImagens) {
         listaImagens.forEach(src => {
-            const img = document.createElement('img');
-            img.src = src;
-            trackElement.appendChild(img);
-        });
-
-        // CLONE para loop
-        const clone = document.createElement('img');
-        clone.src = listaImagens[0];
-        trackElement.appendChild(clone);
-    }
-
-    const tracksBase = document.querySelectorAll('#grid-base .slider-track');
-    tracksBase.forEach(track => popularTrackBase(track, imagensBase));
-
-    let posBase = [0, 1 % imagensBase.length, 2 % imagensBase.length];
-
-    function aplicarPosicoesIniciaisBase() {
-        tracksBase.forEach((track, i) => {
-            track.style.transform = `translateX(-${posBase[i] * 100}%)`;
+            const box = document.createElement('div');
+            box.className = 'box-branco';
+            box.style.backgroundImage = `url('${src}')`;
+            box.style.backgroundSize = '80%'; 
+            box.style.backgroundRepeat = 'no-repeat';
+            box.style.backgroundPosition = 'center';
+            trackBase.appendChild(box);
         });
     }
-    
-    aplicarPosicoesIniciaisBase();
 
-    function moverEteleportarBase(trackElement, indexAtual, totalImagens) {
-        if (!trackElement) return (indexAtual + 1) % totalImagens;
+    // PONTO 1: Criamos 5 clones da lista! (Blocos 0, 1, 2, 3 e 4)
+    // Isso cria uma "pista" gigante pros dois lados, impossível bater na parede.
+    criarCaixasBase(imagensBase);
+    criarCaixasBase(imagensBase);
+    criarCaixasBase(imagensBase);
+    criarCaixasBase(imagensBase);
+    criarCaixasBase(imagensBase);
 
-        const proximoIndex = indexAtual + 1;
-        const shiftPercent = -(proximoIndex * 100);
+    // Começa com a barra de rolagem cravada exatamente no Bloco 2 (o do meio)
+    setTimeout(() => {
+        const larguraUmBloco = trackBase.scrollWidth / 5;
+        trackBase.scrollLeft = larguraUmBloco * 2;
+    }, 100);
 
-        trackElement.style.transition = 'transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)';
-        trackElement.style.transform = `translateX(${shiftPercent}%)`;
+    // PONTO 4: Variáveis de controle super simplificadas (sem drag no mouse)
+    let isInteragindo = false;
+    let velocidadeScroll = 1; 
+    let timeoutInteracao;
 
-        if (proximoIndex === totalImagens) {
-            setTimeout(() => {
-                trackElement.style.transition = 'none';
-                trackElement.style.transform = 'translateX(0%)';
-            }, 600);
-            return 0;
+    // CELULAR: Pausa a animação apenas quando o dedo toca a tela
+    trackBase.addEventListener('touchstart', () => {
+        isInteragindo = true;
+        clearTimeout(timeoutInteracao);
+    }, { passive: true });
+
+    // CELULAR: Volta a rodar sozinho 1.5s após soltar o dedo
+    trackBase.addEventListener('touchend', () => {
+        timeoutInteracao = setTimeout(() => isInteragindo = false, 1500);
+    });
+
+    // COMPUTADOR E CELULAR: Clique para centralizar a logo escolhida
+    trackBase.addEventListener('click', (e) => {
+        const box = e.target.closest('.box-branco');
+        if (!box) return;
+        
+        isInteragindo = true;
+        clearTimeout(timeoutInteracao);
+        
+        // Calcula o centro e rola suavemente até a logo
+        const centroDaCaixa = box.offsetLeft + (box.offsetWidth / 2);
+        const meioDaTela = trackBase.offsetWidth / 2;
+        
+        trackBase.scrollTo({
+            left: centroDaCaixa - meioDaTela,
+            behavior: 'smooth'
+        });
+        
+        // Mantém pausado por 2 segundos para o cara ver a logo
+        timeoutInteracao = setTimeout(() => isInteragindo = false, 2000);
+    });
+
+
+    // --- MOTOR DO SCROLL CONTÍNUO ---
+    function autoScrollBase() {
+        if (!isInteragindo) {
+            trackBase.scrollLeft += velocidadeScroll;
         }
-        return proximoIndex;
+
+        const larguraUmBloco = trackBase.scrollWidth / 5;
+
+        // SE ROLAR PRA DIREITA: Entrou no Bloco 4? Joga invisivelmente pro Bloco 3.
+        if (trackBase.scrollLeft >= larguraUmBloco * 3) {
+            trackBase.scrollLeft -= larguraUmBloco;
+        } 
+        // SE ROLAR PRA ESQUERDA: Invadiu o Bloco 1? Joga invisivelmente pro Bloco 2.
+        else if (trackBase.scrollLeft <= larguraUmBloco) {
+            trackBase.scrollLeft += larguraUmBloco;
+        }
+        
+        requestAnimationFrame(autoScrollBase);
     }
+
+    autoScrollBase();
 
     setInterval(() => {
         if (imagensBase.length > 0) {
